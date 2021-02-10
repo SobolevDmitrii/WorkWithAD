@@ -1,0 +1,6 @@
+D:\AD\AD\obj\Debug\AD.csprojAssemblyReference.cache
+D:\AD\AD\obj\Debug\Interop.ActiveDs.dll
+D:\AD\AD\obj\Debug\AD.csproj.ResolveComReference.cache
+D:\AD\AD\obj\Debug\AD.Properties.Resources.resources
+D:\AD\AD\obj\Debug\AD.csproj.GenerateResource.cache
+D:\AD\AD\obj\Debug\AD.csproj.CoreCompileInputs.cache
