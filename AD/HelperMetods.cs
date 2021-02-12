@@ -25,107 +25,6 @@ namespace AD
         private static bool enabl;
         #endregion
 
-        
-
-
-        /// <summary>
-        /// Получить указанного пользователя Active Directory
-        /// </summary>
-        /// <param name="sUserName">Имя пользователя для извлечения</param>
-        /// <returns>Объект UserPrincipal</returns>
-        public static UserPrincipal GetUser(string sUserName)
-        {
-            PrincipalContext oPrincipalContext = GetPrincipalContext();
-            UserPrincipal result = null;
-            sUserName = sUserName.Trim();
-
-            if (sUserName != null && sUserName != "")
-            {
-                try
-                {
-                    result = UserPrincipal.FindByIdentity(oPrincipalContext, sUserName);
-
-                }
-                catch (Exception er)
-                {
-
-                    return null;
-                }
-
-                return result;
-
-            }
-            else { return null; }
-
-        }
-
-
-        /// <summary>
-        /// Получить указанного пользователя Active Directory
-        /// </summary>
-        /// <param name="sUserName">Имя пользователя для извлечения</param>
-        /// <returns>Объект UserPrincipal</returns>
-        public static UserPrincipal GetUser(string sUserName, out string user_err)
-        {
-            PrincipalContext oPrincipalContext = GetPrincipalContext();
-            UserPrincipal result = null;
-            sUserName = sUserName.Trim();
-
-            if (sUserName != null && sUserName != "")
-            {
-                try
-                {
-                    result = UserPrincipal.FindByIdentity(oPrincipalContext, sUserName);
-
-                }
-                catch (Exception er)
-                {
-                    user_err = er.Message;
-                    return null;
-                }
-                user_err = "ok";
-                return result;
-
-            }
-            else
-            {
-
-                user_err = "Пустой логин";
-                return null;
-
-            }
-
-        }
-
-        /// <summary>
-        /// Получить указанного пользователя Active Directory
-        /// </summary>
-        /// <param name="sUserName">Имя пользователя для извлечения</param>
-        /// <param name="err">Возвращает ошибку</param>
-        /// <returns>Объект UserPrincipal</returns>
-        public static UserPrincipal GetUserCN(string sUserName, out string err)
-        {
-
-            PrincipalContext oPrincipalContext = GetPrincipalContext();
-            err = null;
-
-            if (sUserName != null && sUserName != "")
-            {
-                try
-                {
-                    return UserPrincipal.FindByIdentity(oPrincipalContext, IdentityType.Name, sUserName);
-
-                }
-                catch (Exception e)
-                {
-                    err = e.Message;
-                    return null;
-                }
-
-            }
-            else return null;
-
-        }
 
         /// <summary>
         /// Попытка получить базовый основной контекст
@@ -261,7 +160,27 @@ namespace AD
 
             return LDAPFindOne(ou, filter, user, password);
         }
-        
+
+        /// <summary>
+        /// Получает DirectoryEntry деректории OU
+        /// </summary>
+        /// <param name="ou"> путь к OU</param>
+        /// <returns>Возвращает DirectoryEntry деректории OU</returns>
+        public static DirectoryEntry GetOU(string ou)
+        {
+            try
+            {
+                DirectoryEntry dr = new DirectoryEntry("LDAP://" + sDomain + "/" + ou, sServiceUser, sServicePassword);
+                dr.RefreshCache();
+                return dr;
+            }
+            catch
+            {
+                return null;
+            }
+                        
+        }
+
 
     }
 }

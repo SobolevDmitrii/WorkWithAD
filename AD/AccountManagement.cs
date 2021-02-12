@@ -27,7 +27,7 @@ namespace AD
         {
             try
             {
-                HelperMetods.GetUser(sUserName).SetPassword(sNewPassword);
+                searchMetods.GetUser(sUserName).SetPassword(sNewPassword);
                 sMessage = string.Empty;
             }
             catch (Exception ex)
@@ -113,7 +113,7 @@ namespace AD
         /// <param name="sUserName">Имя пользователя</param>
         public static void EnableUserAccount(string sUserName)
         {
-            using (UserPrincipal oUserPrincipal = HelperMetods.GetUser(sUserName))
+            using (UserPrincipal oUserPrincipal = searchMetods.GetUser(sUserName))
             {
                 oUserPrincipal.Enabled = true;
                 oUserPrincipal.Save();
@@ -126,7 +126,7 @@ namespace AD
         /// <param name="sUserName">Имя пользователя</param>
         public static void DisableUserAccount(string sUserName)
         {
-            using (UserPrincipal oUserPrincipal = HelperMetods.GetUser(sUserName))
+            using (UserPrincipal oUserPrincipal = searchMetods.GetUser(sUserName))
             {
                 oUserPrincipal.Enabled = false;
                 oUserPrincipal.Save();
@@ -139,7 +139,7 @@ namespace AD
         /// <param name="sUserName">Имя пользователя с "истекающим" сроком действия</param>
         public static void ExpireUserPassword(string sUserName)
         {
-            using (UserPrincipal oUserPrincipal = HelperMetods.GetUser(sUserName))
+            using (UserPrincipal oUserPrincipal = searchMetods.GetUser(sUserName))
             {
                 oUserPrincipal.ExpirePasswordNow();
                 oUserPrincipal.Save();
@@ -152,7 +152,7 @@ namespace AD
         /// <param name="sUserName">Имя пользователя для снятия lock'а</param>
         public static void UnlockUserAccount(string sUserName)
         {
-            using (UserPrincipal oUserPrincipal = HelperMetods.GetUser(sUserName))
+            using (UserPrincipal oUserPrincipal = searchMetods.GetUser(sUserName))
             {
                 oUserPrincipal.UnlockAccount();
                 oUserPrincipal.Save();
@@ -306,7 +306,7 @@ namespace AD
         {
             try
             {
-                using (UserPrincipal oUserPrincipal = HelperMetods.GetUser(sUserName))
+                using (UserPrincipal oUserPrincipal = searchMetods.GetUser(sUserName))
                 {
                     oUserPrincipal.Delete();
                 }

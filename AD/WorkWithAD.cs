@@ -113,7 +113,7 @@ namespace AD
         public static bool IsChangePasswordAtNextLogonSet(string sUserName)
         {
 
-            var user = HelperMetods.GetUser(sUserName);
+            var user = searchMetods.GetUser(sUserName);
 
             if (user.LastPasswordSet == null) return true;
 
@@ -140,7 +140,7 @@ namespace AD
         /// <returns>Возвращает true, если пользователь существует</returns>
         public static bool IsUserExisiting (string sUserName)
         {
-            return HelperMetods.GetUser(sUserName) == null ? false : true;
+            return searchMetods.GetUser(sUserName) == null ? false : true;
         }
 
         /// <summary>
@@ -173,7 +173,7 @@ namespace AD
             {
                 try
                 {
-                    result = HelperMetods.GetUser(dn);
+                    result = searchMetods.GetUser(dn);
                 }
                 catch (Exception e)
                 {
@@ -206,7 +206,7 @@ namespace AD
         /// <returns>Возвращает true, если учетная запись заблокирована</returns>
         public static bool IsAccountLocked(string sUserName)
         {
-            return HelperMetods.GetUser(sUserName).IsAccountLockedOut();
+            return searchMetods.GetUser(sUserName).IsAccountLockedOut();
         }
 
         #endregion
