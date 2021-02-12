@@ -313,7 +313,7 @@ namespace AD
         {
             List<string> myItems = new List<string>();
 
-            SearchResult objSearch = LDAPFindOne("", sUserName, LdapFilter.UsersSAN);
+            SearchResult objSearch = HelperMetods.LDAPFindOne("", sUserName, LdapFilter.UsersSAN);
 
             if (objSearch != null)
             {

@@ -4,3 +4,9 @@ D:\AD\AD\obj\Debug\AD.csproj.ResolveComReference.cache
 D:\AD\AD\obj\Debug\AD.Properties.Resources.resources
 D:\AD\AD\obj\Debug\AD.csproj.GenerateResource.cache
 D:\AD\AD\obj\Debug\AD.csproj.CoreCompileInputs.cache
+D:\AD\AD\obj\Debug\AD.Form1.resources
+D:\AD\AD\bin\Debug\AD.exe.config
+D:\AD\AD\bin\Debug\AD.exe
+D:\AD\AD\bin\Debug\AD.pdb
+D:\AD\AD\obj\Debug\AD.exe
+D:\AD\AD\obj\Debug\AD.pdb
