@@ -9,7 +9,7 @@ namespace AD
     public struct UserFlags
     {
         public bool enable;
-        public bool PasswordNeverEspires;
+        public bool PasswordNeverExpires;
         public bool UserCannotChangePassword;
         public bool ExpirePassword;
     }
