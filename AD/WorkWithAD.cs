@@ -158,8 +158,60 @@ namespace AD
             return found;
         }
 
+        /// <summary>
+        /// Проверка существования пользователя в AD по DN
+        /// </summary>
+        /// <param name="DN">DN пользователя</param>
+        /// <returns>Возвращает true, если пользователь существует</returns>
+        public static bool IsUserDNExisiting(string dn, out string err)
+        {
+            PrincipalContext oPrincipalContext = HelperMetods.GetPrincipalContext();
+            UserPrincipal result = null;
+            err = null;
+            //Перемудрено с вложением и перехватом ошибок//
+            if (dn != null && dn != "")
+            {
+                try
+                {
+                    result = HelperMetods.GetUser(dn);
+                }
+                catch (Exception e)
+                {
+                    err = e.Message;
+                    return false;
+                }
+
+            }
+
+            return result == null ? false : true;
+
+        }
+
+
+        /*  /// <summary>
+          /// Проверка существования пользователя по полному имени и аккаунту
+          /// </summary>
+          /// <param name="sUserName">Имя пользователя</param>
+          /// <param name="sUserName">Полное имя</param>
+          /// <returns>Возвращает true, если пользователь существует</returns>
+          public static bool IsUserExisiting(string sUserName, string fullname)
+          {
+              return GetUser(sUserName, fullname) == null ? false : true;
+          }*/
+
+        /// <summary>
+        /// Проверяет блокировку пользователя
+        /// </summary>
+        /// <param name="sUserName">Имя пользователя</param>
+        /// <returns>Возвращает true, если учетная запись заблокирована</returns>
+        public static bool IsAccountLocked(string sUserName)
+        {
+            return HelperMetods.GetUser(sUserName).IsAccountLockedOut();
+        }
 
         #endregion
+
+
         /*
                 #region Вспомогательные методы
 
