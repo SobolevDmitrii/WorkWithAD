@@ -22,7 +22,7 @@ namespace AD
         public static string sDefaultRootOU ;//где ищем по умолчанию
         public static string sServiceUser;//пользователь от кого делаем
         public static string sServicePassword ;
-        private static bool enabl;
+        private static bool enabl = true;
         #endregion
 
 
@@ -109,7 +109,7 @@ namespace AD
 
             var domainPath = @"LDAP://" + sDomain + "/" + ou;
             DirectoryEntry directoryEntry;
-
+            DirectoryEntry entry = new DirectoryEntry("")
             if (String.IsNullOrEmpty(user) || String.IsNullOrEmpty(password))
             {
                 directoryEntry = new DirectoryEntry(domainPath, sServiceUser, sServicePassword);

@@ -168,19 +168,17 @@ namespace AD
         /// <param name="sGivenName">Имя</param>
         /// <param name="sSurName">Фамилия</param>
         /// <returns>Возвращает объект UserPrincipal</returns>
-        public static UserPrincipal CreateNewUser(string sOU, string sUserName, string sPassword, UserProperty userProp, UserFlags flag, out string ErrMessage, string sDomainDefault, string PasswordNeverExpires)
+               
+        public static UserPrincipal CreateNewUser(string sOU, string sUserName, string sPassword, UserProperty userProp, UserFlags flag, out string ErrMessage, string sDomainDefault)
         {
             if (sUserName != "")
             {
-                //string fullname = sSurName + " " + sGivenName;
+                
                 if (WorkWithAD.LDAPIsUserExisiting(sUserName)) { ErrMessage = sUserName + "- Пользователь существует"; return null; }
-                // if (IsUserExisiting(fullname)) { ErrMessage = sUserName + "- Пользователь существует"; return null; }
+                
                 else
                 {
-                    /*    string[] ms = userProp.displayname.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-
-                        if (ms.Length > 2)
-                        {*/
+                   
                     PrincipalContext oPrincipalContext = HelperMetods.GetPrincipalContext(sOU);
                     if (oPrincipalContext != null)
                     {
@@ -190,7 +188,6 @@ namespace AD
                             {
                                 Name = userProp.name,
                                 UserPrincipalName = sUserName + "@" + sDomainDefault,
-                                //   GivenName = userProp.givenname,
                                 Surname = userProp.sn,
                                 DisplayName = userProp.displayname,
                                 Enabled = flag.enable,
@@ -223,7 +220,7 @@ namespace AD
                                  ErrMessage = "ошибка fullname"; return null;
                              }*/
 
-                }
+                } 
             }
             else { ErrMessage = "логин == пусто"; return null; }
         }

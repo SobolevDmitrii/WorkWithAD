@@ -1,0 +1,7 @@
+C:\Users\sda\source\repos\work_ad\work_ad\obj\Debug\work_ad.csprojAssemblyReference.cache
+C:\Users\sda\source\repos\work_ad\work_ad\obj\Debug\Interop.ActiveDs.dll
+C:\Users\sda\source\repos\work_ad\work_ad\obj\Debug\work_ad.csproj.ResolveComReference.cache
+C:\Users\sda\source\repos\work_ad\work_ad\obj\Debug\work_ad.Form1.resources
+C:\Users\sda\source\repos\work_ad\work_ad\obj\Debug\work_ad.Properties.Resources.resources
+C:\Users\sda\source\repos\work_ad\work_ad\obj\Debug\work_ad.csproj.GenerateResource.cache
+C:\Users\sda\source\repos\work_ad\work_ad\obj\Debug\work_ad.csproj.CoreCompileInputs.cache

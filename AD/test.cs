@@ -65,7 +65,6 @@ namespace work_ad
 
         public static string sDomainDefault = "192.168.71.111";//куда подключаемся по умолчанию
         public static string sDomain = "contoso.com";//куда подключаемся
-                                                     //    readonly static string sDefaultOU = "OU=users,OU=uns,DC=contoso,DC=com";
         public static string sDefaultRootOU = "DC=contoso,DC=com";//где ищем по умолчанию
         public static string sServiceUser = "user";//пользователь от кого делаем
         public static string sServicePassword = "password";

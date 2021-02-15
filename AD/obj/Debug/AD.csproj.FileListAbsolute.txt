@@ -10,3 +10,4 @@ D:\AD\AD\bin\Debug\AD.exe
 D:\AD\AD\bin\Debug\AD.pdb
 D:\AD\AD\obj\Debug\AD.exe
 D:\AD\AD\obj\Debug\AD.pdb
+D:\AD\AD\obj\Debug\AD.SettingsForm.resources

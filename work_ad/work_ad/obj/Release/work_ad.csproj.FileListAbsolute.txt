@@ -1,0 +1,11 @@
+C:\Users\sda\source\repos\work_ad\work_ad\bin\Release\work_ad.exe.config
+C:\Users\sda\source\repos\work_ad\work_ad\bin\Release\work_ad.exe
+C:\Users\sda\source\repos\work_ad\work_ad\bin\Release\work_ad.pdb
+C:\Users\sda\source\repos\work_ad\work_ad\obj\Release\Interop.ActiveDs.dll
+C:\Users\sda\source\repos\work_ad\work_ad\obj\Release\work_ad.csproj.ResolveComReference.cache
+C:\Users\sda\source\repos\work_ad\work_ad\obj\Release\work_ad.Form1.resources
+C:\Users\sda\source\repos\work_ad\work_ad\obj\Release\work_ad.Properties.Resources.resources
+C:\Users\sda\source\repos\work_ad\work_ad\obj\Release\work_ad.csproj.GenerateResource.cache
+C:\Users\sda\source\repos\work_ad\work_ad\obj\Release\work_ad.csproj.CoreCompileInputs.cache
+C:\Users\sda\source\repos\work_ad\work_ad\obj\Release\work_ad.exe
+C:\Users\sda\source\repos\work_ad\work_ad\obj\Release\work_ad.pdb

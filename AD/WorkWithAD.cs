@@ -17,11 +17,11 @@ namespace AD
     class WorkWithAD
     {
         #region Переменные
-        public static string sDomainDefault = "";//куда подключаемся по умолчанию
-        public static string sDomain = "";//куда подключаемся
-        public static string sDefaultRootOU = "DC=contoso,DC=com";//где ищем по умолчанию
-        public static string sServiceUser = "user";//пользователь от кого делаем
-        public static string sServicePassword = "password";
+        public static string sDomainDefault;//куда подключаемся по умолчанию
+        public static string sDomain ;//куда подключаемся
+        public static string sDefaultRootOU ;//где ищем по умолчанию
+        public static string sServiceUser;//пользователь от кого делаем
+        public static string sServicePassword;
         private static bool enabl = true;
         #endregion
 
