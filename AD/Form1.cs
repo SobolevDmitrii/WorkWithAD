@@ -88,7 +88,7 @@ namespace AD
 
         private void DeleteUserButton_Click(object sender, EventArgs e)
         {
-            
+            AccountManagement.DeleteUser(LoginUserDeleteTextBox.Text);
             
         }
 
@@ -100,15 +100,25 @@ namespace AD
 
         private void SrechButton_Click(object sender, EventArgs e)
         {
-            WorkWithAD.ValidateController();
+           //WorkWithAD.ValidateController();
             if (WorkWithAD.ValidateController())
+            {
                 SerchErrTextBox.Text = "Server connected";
+            } else
+            {
+                SerchErrTextBox.Text = "Fuck U!!!!!!!!!!!!!!!!!!!";
+            }
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
            var res =  searchMetods.GetUser(textBox2.Text);
           
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+
         }
     }
 }

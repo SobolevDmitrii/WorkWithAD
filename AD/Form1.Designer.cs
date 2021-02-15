@@ -34,6 +34,21 @@
             this.работаСПользовтелямиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.создатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.SerchErrTextBox = new System.Windows.Forms.TextBox();
+            this.SrechButton = new System.Windows.Forms.Button();
+            this.DeleteYserPanel = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.DeleteUserButton = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.LoginUserDeleteTextBox = new System.Windows.Forms.TextBox();
             this.CreateUserPanel = new System.Windows.Forms.Panel();
             this.ErrorTextBox = new System.Windows.Forms.TextBox();
             this.CreateUserButton = new System.Windows.Forms.Button();
@@ -47,33 +62,24 @@
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.LoginTextBox = new System.Windows.Forms.TextBox();
             this.NameTextBox = new System.Windows.Forms.TextBox();
-            this.DeleteYserPanel = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.DeleteUserButton = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.LoginUserDeleteTextBox = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.SrechButton = new System.Windows.Forms.Button();
-            this.SerchErrTextBox = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
-            this.CreateUserPanel.SuspendLayout();
-            this.DeleteYserPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.DeleteYserPanel.SuspendLayout();
+            this.CreateUserPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
             this.работаСПользовтелямиToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1045, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(932, 24);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -88,7 +94,7 @@
             // настройкиToolStripMenuItem
             // 
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
-            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.настройкиToolStripMenuItem.Text = "Настройки";
             this.настройкиToolStripMenuItem.Click += new System.EventHandler(this.настройкиToolStripMenuItem_Click);
             // 
@@ -115,6 +121,143 @@
             this.удалитьToolStripMenuItem.Text = "Удалить";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 24);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(932, 528);
+            this.tabControl1.TabIndex = 14;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.panel2);
+            this.tabPage1.Controls.Add(this.panel1);
+            this.tabPage1.Controls.Add(this.DeleteYserPanel);
+            this.tabPage1.Controls.Add(this.CreateUserPanel);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(924, 502);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(192, 74);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.textBox3);
+            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Location = new System.Drawing.Point(368, 131);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(409, 119);
+            this.panel2.TabIndex = 26;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(16, 89);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(331, 20);
+            this.textBox3.TabIndex = 21;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(16, 36);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(331, 20);
+            this.textBox2.TabIndex = 20;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(16, 60);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Запрос";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.SerchErrTextBox);
+            this.panel1.Controls.Add(this.SrechButton);
+            this.panel1.Location = new System.Drawing.Point(496, 6);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(409, 119);
+            this.panel1.TabIndex = 25;
+            // 
+            // SerchErrTextBox
+            // 
+            this.SerchErrTextBox.Location = new System.Drawing.Point(16, 36);
+            this.SerchErrTextBox.Name = "SerchErrTextBox";
+            this.SerchErrTextBox.Size = new System.Drawing.Size(331, 20);
+            this.SerchErrTextBox.TabIndex = 20;
+            // 
+            // SrechButton
+            // 
+            this.SrechButton.Location = new System.Drawing.Point(16, 7);
+            this.SrechButton.Name = "SrechButton";
+            this.SrechButton.Size = new System.Drawing.Size(75, 23);
+            this.SrechButton.TabIndex = 0;
+            this.SrechButton.Text = "Запрос";
+            this.SrechButton.UseVisualStyleBackColor = true;
+            // 
+            // DeleteYserPanel
+            // 
+            this.DeleteYserPanel.Controls.Add(this.textBox1);
+            this.DeleteYserPanel.Controls.Add(this.DeleteUserButton);
+            this.DeleteYserPanel.Controls.Add(this.label14);
+            this.DeleteYserPanel.Controls.Add(this.LoginUserDeleteTextBox);
+            this.DeleteYserPanel.Location = new System.Drawing.Point(8, 6);
+            this.DeleteYserPanel.Name = "DeleteYserPanel";
+            this.DeleteYserPanel.Size = new System.Drawing.Size(482, 119);
+            this.DeleteYserPanel.TabIndex = 24;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(13, 73);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(331, 20);
+            this.textBox1.TabIndex = 19;
+            // 
+            // DeleteUserButton
+            // 
+            this.DeleteUserButton.Location = new System.Drawing.Point(13, 41);
+            this.DeleteUserButton.Name = "DeleteUserButton";
+            this.DeleteUserButton.Size = new System.Drawing.Size(132, 23);
+            this.DeleteUserButton.TabIndex = 18;
+            this.DeleteUserButton.Text = "Удалить";
+            this.DeleteUserButton.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(11, 18);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(41, 13);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "Логин:";
+            // 
+            // LoginUserDeleteTextBox
+            // 
+            this.LoginUserDeleteTextBox.Location = new System.Drawing.Point(148, 15);
+            this.LoginUserDeleteTextBox.Name = "LoginUserDeleteTextBox";
+            this.LoginUserDeleteTextBox.Size = new System.Drawing.Size(194, 20);
+            this.LoginUserDeleteTextBox.TabIndex = 0;
+            // 
             // CreateUserPanel
             // 
             this.CreateUserPanel.Controls.Add(this.ErrorTextBox);
@@ -129,10 +272,10 @@
             this.CreateUserPanel.Controls.Add(this.FullNameTextBox);
             this.CreateUserPanel.Controls.Add(this.LoginTextBox);
             this.CreateUserPanel.Controls.Add(this.NameTextBox);
-            this.CreateUserPanel.Location = new System.Drawing.Point(12, 152);
+            this.CreateUserPanel.Location = new System.Drawing.Point(8, 131);
             this.CreateUserPanel.Name = "CreateUserPanel";
             this.CreateUserPanel.Size = new System.Drawing.Size(354, 216);
-            this.CreateUserPanel.TabIndex = 15;
+            this.CreateUserPanel.TabIndex = 23;
             // 
             // ErrorTextBox
             // 
@@ -149,7 +292,6 @@
             this.CreateUserButton.TabIndex = 18;
             this.CreateUserButton.Text = "Создать";
             this.CreateUserButton.UseVisualStyleBackColor = true;
-            this.CreateUserButton.Click += new System.EventHandler(this.CreateUserButton_Click);
             // 
             // label9
             // 
@@ -231,133 +373,28 @@
             this.NameTextBox.Size = new System.Drawing.Size(194, 20);
             this.NameTextBox.TabIndex = 0;
             // 
-            // DeleteYserPanel
-            // 
-            this.DeleteYserPanel.Controls.Add(this.textBox1);
-            this.DeleteYserPanel.Controls.Add(this.DeleteUserButton);
-            this.DeleteYserPanel.Controls.Add(this.label14);
-            this.DeleteYserPanel.Controls.Add(this.LoginUserDeleteTextBox);
-            this.DeleteYserPanel.Location = new System.Drawing.Point(12, 27);
-            this.DeleteYserPanel.Name = "DeleteYserPanel";
-            this.DeleteYserPanel.Size = new System.Drawing.Size(482, 119);
-            this.DeleteYserPanel.TabIndex = 20;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(13, 73);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(331, 20);
-            this.textBox1.TabIndex = 19;
-            // 
-            // DeleteUserButton
-            // 
-            this.DeleteUserButton.Location = new System.Drawing.Point(13, 41);
-            this.DeleteUserButton.Name = "DeleteUserButton";
-            this.DeleteUserButton.Size = new System.Drawing.Size(132, 23);
-            this.DeleteUserButton.TabIndex = 18;
-            this.DeleteUserButton.Text = "Удалить";
-            this.DeleteUserButton.UseVisualStyleBackColor = true;
-            this.DeleteUserButton.Click += new System.EventHandler(this.DeleteUserButton_Click);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(11, 18);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(41, 13);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "Логин:";
-            // 
-            // LoginUserDeleteTextBox
-            // 
-            this.LoginUserDeleteTextBox.Location = new System.Drawing.Point(148, 15);
-            this.LoginUserDeleteTextBox.Name = "LoginUserDeleteTextBox";
-            this.LoginUserDeleteTextBox.Size = new System.Drawing.Size(194, 20);
-            this.LoginUserDeleteTextBox.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.SerchErrTextBox);
-            this.panel1.Controls.Add(this.SrechButton);
-            this.panel1.Location = new System.Drawing.Point(500, 27);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(409, 119);
-            this.panel1.TabIndex = 21;
-            // 
-            // SrechButton
-            // 
-            this.SrechButton.Location = new System.Drawing.Point(16, 7);
-            this.SrechButton.Name = "SrechButton";
-            this.SrechButton.Size = new System.Drawing.Size(75, 23);
-            this.SrechButton.TabIndex = 0;
-            this.SrechButton.Text = "Запрос";
-            this.SrechButton.UseVisualStyleBackColor = true;
-            this.SrechButton.Click += new System.EventHandler(this.SrechButton_Click);
-            // 
-            // SerchErrTextBox
-            // 
-            this.SerchErrTextBox.Location = new System.Drawing.Point(16, 36);
-            this.SerchErrTextBox.Name = "SerchErrTextBox";
-            this.SerchErrTextBox.Size = new System.Drawing.Size(331, 20);
-            this.SerchErrTextBox.TabIndex = 20;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.textBox3);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(372, 152);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(409, 119);
-            this.panel2.TabIndex = 22;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(16, 36);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(331, 20);
-            this.textBox2.TabIndex = 20;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(16, 60);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Запрос";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(16, 89);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(331, 20);
-            this.textBox3.TabIndex = 21;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1045, 552);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.DeleteYserPanel);
-            this.Controls.Add(this.CreateUserPanel);
+            this.ClientSize = new System.Drawing.Size(932, 552);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.CreateUserPanel.ResumeLayout(false);
-            this.CreateUserPanel.PerformLayout();
-            this.DeleteYserPanel.ResumeLayout(false);
-            this.DeleteYserPanel.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.DeleteYserPanel.ResumeLayout(false);
+            this.DeleteYserPanel.PerformLayout();
+            this.CreateUserPanel.ResumeLayout(false);
+            this.CreateUserPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -370,8 +407,26 @@
         private System.Windows.Forms.ToolStripMenuItem работаСПользовтелямиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem создатьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox SerchErrTextBox;
+        private System.Windows.Forms.Button SrechButton;
+        private System.Windows.Forms.Panel DeleteYserPanel;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button DeleteUserButton;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox LoginUserDeleteTextBox;
         private System.Windows.Forms.Panel CreateUserPanel;
+        private System.Windows.Forms.TextBox ErrorTextBox;
+        private System.Windows.Forms.Button CreateUserButton;
+        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox PasTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -379,22 +434,7 @@
         private System.Windows.Forms.TextBox FullNameTextBox;
         private System.Windows.Forms.TextBox LoginTextBox;
         private System.Windows.Forms.TextBox NameTextBox;
-        private System.Windows.Forms.Button CreateUserButton;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox PasTextBox;
-        private System.Windows.Forms.TextBox ErrorTextBox;
-        private System.Windows.Forms.Panel DeleteYserPanel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button DeleteUserButton;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox LoginUserDeleteTextBox;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox SerchErrTextBox;
-        private System.Windows.Forms.Button SrechButton;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }
 

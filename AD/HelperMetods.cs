@@ -10,6 +10,7 @@ using System.DirectoryServices.AccountManagement;
 using System.Net;
 using System.Security.Principal;
 using ActiveDs;
+using System.Windows.Forms;
 
 namespace AD
 {
@@ -99,8 +100,8 @@ namespace AD
         /// <returns>Возвращает SearchResult</returns>
         public static SearchResult LDAPFindOne(string ou, string Filter, string user = null, string password = null)
         {
-
-            if (enabl) return null;
+           
+            //if (enabl) return null;
 
             if (ou == "")
             {
@@ -109,14 +110,16 @@ namespace AD
 
             var domainPath = @"LDAP://" + sDomain + "/" + ou;
             DirectoryEntry directoryEntry;
-            DirectoryEntry entry = new DirectoryEntry("")
+            //DirectoryEntry entry = new DirectoryEntry("")
             if (String.IsNullOrEmpty(user) || String.IsNullOrEmpty(password))
             {
                 directoryEntry = new DirectoryEntry(domainPath, sServiceUser, sServicePassword);
+                
             }
             else
             {
                 directoryEntry = new DirectoryEntry(domainPath, user, password);
+                
             }
 
             var dirSearcher = new DirectorySearcher(directoryEntry);
@@ -127,11 +130,13 @@ namespace AD
 
             try
             {
-
+               
                 return dirSearcher.FindOne();
+                
             }
             catch (Exception erousr)
             {
+                
                 return null;
             }
 
@@ -146,6 +151,7 @@ namespace AD
         /// <returns>Возвращает SearchResult</returns>
         public static SearchResult LDAPFindOne(string ou, string obj, LdapFilter ldf, string user = null, string password = null)
         {
+            
             string filter = "";
 
 
@@ -157,7 +163,7 @@ namespace AD
                 case LdapFilter.UsersCN: filter = "(&(objectCategory=person)(objectClass=user)(CN=" + obj + "))"; break;
                 case LdapFilter.Groups: filter = "(&(objectCategory=group)(name=" + obj + ")) "; break;
             }
-
+            
             return LDAPFindOne(ou, filter, user, password);
         }
 

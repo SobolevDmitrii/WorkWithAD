@@ -164,7 +164,7 @@ namespace AD
                 try
                 {
                     result = UserPrincipal.FindByIdentity(oPrincipalContext, sUserName);
-
+                    //UserPrincipal.
                 }
                 catch (Exception er)
                 {

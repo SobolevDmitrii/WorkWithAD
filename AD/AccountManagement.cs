@@ -11,6 +11,7 @@ using System.Net;
 using System.Security.Principal;
 using ActiveDs;
 using System.Collections;
+using System.Windows.Forms;
 
 namespace AD
 {
@@ -179,11 +180,13 @@ namespace AD
                 else
                 {
                    
-                    PrincipalContext oPrincipalContext = HelperMetods.GetPrincipalContext(sOU);
+                    PrincipalContext oPrincipalContext = HelperMetods.GetPrincipalContext();
                     if (oPrincipalContext != null)
                     {
+                        
                         try
                         {
+                            MessageBox.Show("Ya tyt");
                             UserPrincipal oUserPrincipal = new UserPrincipal(oPrincipalContext, sUserName, sPassword, true)
                             {
                                 Name = userProp.name,
@@ -194,8 +197,9 @@ namespace AD
                                 PasswordNeverExpires = flag.PasswordNeverExpires,
                                 UserCannotChangePassword = flag.UserCannotChangePassword,
                                 PasswordNotRequired = false
+                                
                             };
-
+                            MessageBox.Show(oUserPrincipal.UserPrincipalName);
                             if (flag.ExpirePassword) oUserPrincipal.ExpirePasswordNow();
 
                             oUserPrincipal.Save();
@@ -206,6 +210,7 @@ namespace AD
                         }
                         catch (Exception e)
                         {
+                            MessageBox.Show("f U");
                             ErrMessage = e.Message;
                             return null;
 
