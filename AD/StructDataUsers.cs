@@ -12,6 +12,7 @@ namespace AD
     {
         public string sn;
         public string givenname;
+        public string cn;
         public string displayname;
         public string description;
         public string physicaldeliveryofficename;

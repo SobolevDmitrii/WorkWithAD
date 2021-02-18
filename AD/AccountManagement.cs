@@ -17,6 +17,14 @@ namespace AD
 {
     class AccountManagement
     {
+        #region Переменные
+        public static string sDomainDefault;//куда подключаемся по умолчанию
+        public static string sDomain ;//куда подключаемся
+        public static string sDefaultRootOU ;//где ищем по умолчанию
+        public static string sServiceUser;//пользователь от кого делаем
+        public static string sServicePassword ;
+        private static bool enabl = true;
+        #endregion
 
         /// <summary>
         /// Установка нового пароля
@@ -60,7 +68,7 @@ namespace AD
 
                     if (prop.description != null)
                         if (prop.description != "") { prop.description = prop.description.Length >= 65 ? prop.description.Substring(0, 64) : prop.description; oUserPrincipal.Description = prop.description; } else oUserPrincipal.Description = null;
-
+                   
                     if (prop.mail != null)
                         if (prop.mail != "") oUserPrincipal.EmailAddress = prop.mail; else oUserPrincipal.EmailAddress = null;
 
@@ -131,6 +139,48 @@ namespace AD
             {
                 oUserPrincipal.Enabled = false;
                 oUserPrincipal.Save();
+
+                string userToBeMoved = sUserName; // the username (login name) of a user who exists in AD
+                string sourceLdapPath = @"LDAP://" + sDomain + "/" + sDefaultRootOU;
+                DirectoryEntry sourceLdapConnection = new DirectoryEntry(sourceLdapPath, sServiceUser, sServicePassword);
+                DirectorySearcher search = new DirectorySearcher(sourceLdapConnection)
+                {
+                    SearchScope = SearchScope.Subtree,
+                    Filter = "(&(objectCategory=person)(objectClass=user)(sAMAccountName=" + userToBeMoved + "))" 
+                };
+
+                //search.PropertiesToLoad.Add("distinguishedname");
+                if (search != null)
+                {
+                    SearchResult result = search.FindOne();
+
+                    using (DirectoryEntry userEntry = result.GetDirectoryEntry())
+                    {
+                        if (userEntry != null)
+                        {
+                            string targetLdapPath = @"LDAP://" + sDomain + "/UsersOff";
+                            using (DirectoryEntry targetLdapConnection = new DirectoryEntry(targetLdapPath, sServiceUser, sServicePassword))
+                            {
+                                // this is the line at which it breaks
+                                userEntry.MoveTo(targetLdapConnection);
+                            }
+                        }
+                    }
+                }
+                /* DirectoryEntry mySearchRoot = new DirectoryEntry(@"LDAP://" + sDomain + "/" + sDefaultRootOU);
+                 DirectorySearcher myDirectorySearcher = new DirectorySearcher(mySearchRoot);
+
+                 SearchResult mySearchResult = myDirectorySearcher.FindOne();
+
+                 if (mySearchResult != null)
+                 {
+                     DirectoryEntry directoryEntry = mySearchResult.GetDirectoryEntry();
+                     DirectoryEntry newLocation = new DirectoryEntry(@"LDAP://" + sDomain + "/UsersOff",sServiceUser,sServicePassword);
+
+                     directoryEntry.MoveTo(newLocation);
+                     directoryEntry.CommitChanges();
+
+                 }*/
             }
         }
 
@@ -144,6 +194,8 @@ namespace AD
             {
                 oUserPrincipal.ExpirePasswordNow();
                 oUserPrincipal.Save();
+
+                
             }
         }
 
@@ -160,6 +212,8 @@ namespace AD
             }
         }
 
+    
+
         /// <summary>
         /// Создание нового пользователя Active Directory
         /// </summary>
@@ -169,7 +223,7 @@ namespace AD
         /// <param name="sGivenName">Имя</param>
         /// <param name="sSurName">Фамилия</param>
         /// <returns>Возвращает объект UserPrincipal</returns>
-               
+
         public static UserPrincipal CreateNewUser(string sOU, string sUserName, string sPassword, UserProperty userProp, UserFlags flag, out string ErrMessage, string sDomainDefault)
         {
             if (sUserName != "")
@@ -186,7 +240,7 @@ namespace AD
                         
                         try
                         {
-                            MessageBox.Show("Ya tyt");
+                           
                             UserPrincipal oUserPrincipal = new UserPrincipal(oPrincipalContext, sUserName, sPassword, true)
                             {
                                 Name = userProp.name,
@@ -199,7 +253,7 @@ namespace AD
                                 PasswordNotRequired = false
                                 
                             };
-                            MessageBox.Show(oUserPrincipal.UserPrincipalName);
+                            SetUserProperty(oUserPrincipal, userProp,out ErrMessage);
                             if (flag.ExpirePassword) oUserPrincipal.ExpirePasswordNow();
 
                             oUserPrincipal.Save();
@@ -210,7 +264,7 @@ namespace AD
                         }
                         catch (Exception e)
                         {
-                            MessageBox.Show("f U");
+                            
                             ErrMessage = e.Message;
                             return null;
 
@@ -236,12 +290,12 @@ namespace AD
         /// <param name="sUserName">логин пользователя</param>
         /// <param name="sFullName">новое имя пользователя</param>
         /// <returns>Возвращает Истина если все хорошо</returns>
-        public static bool RenameUser(string sUserName, string sFullName, out string err)
+        public static bool RenameUser(string sUserName, string sName,string sSecondName,string sFullName, UserProperty userProperty, out string err)
         {
             try
             {
                 var user = UserPrincipal.FindByIdentity(HelperMetods.GetPrincipalContext(), sUserName);
-                if (user != null && sFullName != null)
+                if (user != null && sFullName != null && sName != null && sSecondName != null)
                 {
                     var dirEntry = (DirectoryEntry)user.GetUnderlyingObject();
                     dirEntry.Rename("CN=" + sFullName);

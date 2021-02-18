@@ -59,7 +59,7 @@ namespace AD
         /// <returns>Возвращает true, если имя и пароль верны</returns>
         public static bool LDAPValidateCredentials()
         {
-            MessageBox.Show("LDAPValidadteController");
+           
             var pc = HelperMetods.LDAPFindOne("", sServiceUser, LdapFilter.UsersSAN);
 
             if (pc == null) return false;
@@ -101,7 +101,7 @@ namespace AD
         /// <returns>Возвращает true, есои сервер вернул данные</returns>
         public static bool ValidateController()
         {
-            MessageBox.Show("ValidadteController");
+          
             return LDAPValidateCredentials();
 
         }

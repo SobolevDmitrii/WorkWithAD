@@ -39,6 +39,8 @@
             this.DomainTextBox = new System.Windows.Forms.TextBox();
             this.DomainDefaultTextBox = new System.Windows.Forms.TextBox();
             this.SaveButton = new System.Windows.Forms.Button();
+            this.SerchErrTextBox = new System.Windows.Forms.TextBox();
+            this.SreachButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DefaultRootOUTextBox2
@@ -129,11 +131,30 @@
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
+            // SerchErrTextBox
+            // 
+            this.SerchErrTextBox.Location = new System.Drawing.Point(187, 146);
+            this.SerchErrTextBox.Name = "SerchErrTextBox";
+            this.SerchErrTextBox.Size = new System.Drawing.Size(282, 20);
+            this.SerchErrTextBox.TabIndex = 20;
+            // 
+            // SreachButton
+            // 
+            this.SreachButton.Location = new System.Drawing.Point(104, 143);
+            this.SreachButton.Name = "SreachButton";
+            this.SreachButton.Size = new System.Drawing.Size(75, 23);
+            this.SreachButton.TabIndex = 0;
+            this.SreachButton.Text = "Проверить";
+            this.SreachButton.UseVisualStyleBackColor = true;
+            this.SreachButton.Click += new System.EventHandler(this.SreachButton_Click);
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 186);
+            this.ClientSize = new System.Drawing.Size(475, 175);
+            this.Controls.Add(this.SreachButton);
+            this.Controls.Add(this.SerchErrTextBox);
             this.Controls.Add(this.DefaultRootOUTextBox2);
             this.Controls.Add(this.DefaultRootOUTextBox1);
             this.Controls.Add(this.label4);
@@ -165,5 +186,7 @@
         private System.Windows.Forms.TextBox DomainTextBox;
         private System.Windows.Forms.TextBox DomainDefaultTextBox;
         private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.TextBox SerchErrTextBox;
+        private System.Windows.Forms.Button SreachButton;
     }
 }

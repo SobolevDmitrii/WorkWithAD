@@ -22,10 +22,7 @@ namespace AD
         public Form1()
         {
             InitializeComponent();
-            CreateUserPanel.Visible = false;
-            DeleteYserPanel.Visible = false;
-
-
+          
             HelperMetods.sDomain = Properties.Settings.Default.Domain;
             HelperMetods.sDomainDefault = Properties.Settings.Default.DomainDefault;
             HelperMetods.sServiceUser = Properties.Settings.Default.ServiceUser;
@@ -37,7 +34,6 @@ namespace AD
             WorkWithAD.sServiceUser = Properties.Settings.Default.ServiceUser;
             WorkWithAD.sServicePassword = Properties.Settings.Default.ServicePassword;
             WorkWithAD.sDefaultRootOU = String.Format(@"DC={0},DC={1}", Properties.Settings.Default.RootDom, Properties.Settings.Default.RootDNS);
-
 
             work_ad.cAD.sDomain = Properties.Settings.Default.Domain;
             work_ad.cAD.sDomainDefault = Properties.Settings.Default.DomainDefault;
@@ -60,20 +56,15 @@ namespace AD
             F2.Show();
         }
 
-        private void создатьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CreateUserPanel.Visible = true;
-            DeleteYserPanel.Visible = false;
-           
-        }
 
         private void CreateUserButton_Click(object sender, EventArgs e)
         {
             UserProperty userProp = new UserProperty();
-            userProp.sn = NameTextBox.Text;
-            userProp.name = String.Format(@"{0} {1}", SecondNameTextBox.Text, NameTextBox.Text);
-            userProp.givenname = SecondNameTextBox.Text;
-            userProp.displayname = String.Format(@"{0} {1}", SecondNameTextBox.Text, NameTextBox.Text);
+            userProp.sn = SecondNameTextBox.Text;
+            userProp.name = String.Format(@"{0} {1}", NameTextBox.Text, SecondNameTextBox.Text);
+            userProp.cn = String.Format(@"{0} {1}", NameTextBox.Text, SecondNameTextBox.Text);
+            userProp.givenname = NameTextBox.Text;
+            userProp.displayname = String.Format(@"{0} {1}", NameTextBox.Text, SecondNameTextBox.Text);
             UserFlags userFlags = new UserFlags();
             userFlags.enable = true;
             userFlags.PasswordNeverExpires = true;
@@ -88,37 +79,37 @@ namespace AD
 
         private void DeleteUserButton_Click(object sender, EventArgs e)
         {
-            AccountManagement.DeleteUser(LoginUserDeleteTextBox.Text);
+            AccountManagement.DeleteUser(LoginUserDeleteTextBox.Text);  
+        }
+
+        private void NameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            FullNameTextBox.Text = string.Format("{0} {1}", NameTextBox.Text, SecondNameTextBox.Text);
+        }
+
+        private void SecondNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            FullNameTextBox.Text = string.Format("{0} {1}", NameTextBox.Text, SecondNameTextBox.Text);
+        }
+
+
+        private void SetPasswordButton_Click(object sender, EventArgs e)
+        {
+            string err;
+            AccountManagement.SetUserPassword(LoginUserTextBox.Text,NewPasTexBox.Text,out err);
+            MessageBox.Show(err);
+        }
+
+        private void DisableButtom_Click(object sender, EventArgs e)
+        {
+            AccountManagement.DisableUserAccount(LoginDisableTextBox.Text);
             
         }
 
-        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void EnableButton_Click(object sender, EventArgs e)
         {
-            DeleteYserPanel.Visible = true;
-            CreateUserPanel.Visible = false;
-        }
-
-        private void SrechButton_Click(object sender, EventArgs e)
-        {
-           //WorkWithAD.ValidateController();
-            if (WorkWithAD.ValidateController())
-            {
-                SerchErrTextBox.Text = "Server connected";
-            } else
-            {
-                SerchErrTextBox.Text = "Fuck U!!!!!!!!!!!!!!!!!!!";
-            }
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-           var res =  searchMetods.GetUser(textBox2.Text);
-          
-        }
-
-        private void button1_Click_2(object sender, EventArgs e)
-        {
-
+            AccountManagement.EnableUserAccount(LoginDisableTextBox.Text);
         }
     }
-}
+ }
+
