@@ -29,6 +29,14 @@ namespace AD
             HelperMetods.sServicePassword = Properties.Settings.Default.ServicePassword;
             HelperMetods.sDefaultRootOU = String.Format(@"DC={0},DC={1}", Properties.Settings.Default.RootDom, Properties.Settings.Default.RootDNS);
 
+            AccountManagement.sDomain = Properties.Settings.Default.Domain;
+            AccountManagement.sDomainDefault = Properties.Settings.Default.DomainDefault;
+            AccountManagement.sServiceUser = Properties.Settings.Default.ServiceUser;
+            AccountManagement.sServicePassword = Properties.Settings.Default.ServicePassword;
+            AccountManagement.sDefaultRootOU = String.Format(@"DC={0},DC={1}", Properties.Settings.Default.RootDom, Properties.Settings.Default.RootDNS);
+            AccountManagement.sRootDom = Properties.Settings.Default.RootDom;
+            AccountManagement.sRootDNS = Properties.Settings.Default.RootDNS;
+
             WorkWithAD.sDomain = Properties.Settings.Default.Domain;
             WorkWithAD.sDomainDefault = Properties.Settings.Default.DomainDefault;
             WorkWithAD.sServiceUser = Properties.Settings.Default.ServiceUser;

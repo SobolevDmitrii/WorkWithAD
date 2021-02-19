@@ -54,6 +54,14 @@ namespace AD
             work_ad.cAD.sServicePassword = Properties.Settings.Default.ServicePassword;
             work_ad.cAD.sDefaultRootOU = String.Format(@"DC={0},DC={1}", Properties.Settings.Default.RootDom, Properties.Settings.Default.RootDNS);
 
+
+            AccountManagement.sDomain = Properties.Settings.Default.Domain;
+            AccountManagement.sDomainDefault = Properties.Settings.Default.DomainDefault;
+            AccountManagement.sServiceUser = Properties.Settings.Default.ServiceUser;
+            AccountManagement.sServicePassword = Properties.Settings.Default.ServicePassword;
+            AccountManagement.sDefaultRootOU = String.Format(@"DC={0},DC={1}", Properties.Settings.Default.RootDom, Properties.Settings.Default.RootDNS);
+            AccountManagement.sRootDom = Properties.Settings.Default.RootDom;
+            AccountManagement.sRootDNS = Properties.Settings.Default.RootDNS;
         }
 
         private void SreachButton_Click(object sender, EventArgs e)

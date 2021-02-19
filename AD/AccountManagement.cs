@@ -23,7 +23,10 @@ namespace AD
         public static string sDefaultRootOU ;//где ищем по умолчанию
         public static string sServiceUser;//пользователь от кого делаем
         public static string sServicePassword ;
+        public static string sRootDom;
+        public static string sRootDNS;
         private static bool enabl = true;
+
         #endregion
 
         /// <summary>
@@ -126,6 +129,31 @@ namespace AD
             {
                 oUserPrincipal.Enabled = true;
                 oUserPrincipal.Save();
+
+                try
+                {
+
+                    var objresult = HelperMetods.LDAPFindOne("", sUserName, LdapFilter.UsersSAN);
+
+                    using (DirectoryEntry userEntry = objresult.GetDirectoryEntry())
+                    {
+                        if (userEntry != null)
+                        {
+
+                            string targetLdapPath = @"LDAP://CN=Users,DC=" + sRootDom + ",DC=" + sRootDNS;
+
+                            using (DirectoryEntry targetLdapConnection = new DirectoryEntry(targetLdapPath, sServiceUser, sServicePassword))
+                            {
+                                userEntry.MoveTo(targetLdapConnection);
+                            }
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+
             }
         }
 
@@ -140,47 +168,29 @@ namespace AD
                 oUserPrincipal.Enabled = false;
                 oUserPrincipal.Save();
 
-                string userToBeMoved = sUserName; // the username (login name) of a user who exists in AD
-                string sourceLdapPath = @"LDAP://" + sDomain + "/" + sDefaultRootOU;
-                DirectoryEntry sourceLdapConnection = new DirectoryEntry(sourceLdapPath, sServiceUser, sServicePassword);
-                DirectorySearcher search = new DirectorySearcher(sourceLdapConnection)
+                try
                 {
-                    SearchScope = SearchScope.Subtree,
-                    Filter = "(&(objectCategory=person)(objectClass=user)(sAMAccountName=" + userToBeMoved + "))" 
-                };
 
-                //search.PropertiesToLoad.Add("distinguishedname");
-                if (search != null)
-                {
-                    SearchResult result = search.FindOne();
-
-                    using (DirectoryEntry userEntry = result.GetDirectoryEntry())
+                    var objresult = HelperMetods.LDAPFindOne("", sUserName, LdapFilter.UsersSAN);
+                    
+                    using (DirectoryEntry userEntry = objresult.GetDirectoryEntry())
                     {
                         if (userEntry != null)
                         {
-                            string targetLdapPath = @"LDAP://" + sDomain + "/UsersOff";
+                            
+                            string targetLdapPath = @"LDAP://OU=UsersOff,DC=" + sRootDom + ",DC=" + sRootDNS;
+                            
                             using (DirectoryEntry targetLdapConnection = new DirectoryEntry(targetLdapPath, sServiceUser, sServicePassword))
                             {
-                                // this is the line at which it breaks
                                 userEntry.MoveTo(targetLdapConnection);
                             }
                         }
                     }
                 }
-                /* DirectoryEntry mySearchRoot = new DirectoryEntry(@"LDAP://" + sDomain + "/" + sDefaultRootOU);
-                 DirectorySearcher myDirectorySearcher = new DirectorySearcher(mySearchRoot);
-
-                 SearchResult mySearchResult = myDirectorySearcher.FindOne();
-
-                 if (mySearchResult != null)
-                 {
-                     DirectoryEntry directoryEntry = mySearchResult.GetDirectoryEntry();
-                     DirectoryEntry newLocation = new DirectoryEntry(@"LDAP://" + sDomain + "/UsersOff",sServiceUser,sServicePassword);
-
-                     directoryEntry.MoveTo(newLocation);
-                     directoryEntry.CommitChanges();
-
-                 }*/
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }              
             }
         }
 
