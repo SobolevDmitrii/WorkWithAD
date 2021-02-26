@@ -11,6 +11,7 @@ using System.Net;
 using System.Security.Principal;
 using ActiveDs;
 using System.Collections;
+using System.Windows.Forms;
 
 namespace AD
 {
@@ -27,17 +28,17 @@ namespace AD
         /// <returns>Возвращает объект GroupPrincipal</returns>
         public static GroupPrincipal CreateNewGroup(string sOU, string sGroupName, string sDescription, GroupScope oGroupScope, bool bSecurityGroup)
         {
+            
             PrincipalContext oPrincipalContext = HelperMetods.GetPrincipalContext(sOU);
-
+           
             GroupPrincipal oGroupPrincipal = new GroupPrincipal(oPrincipalContext, sGroupName)
             {
                 Description = sDescription,
                 GroupScope = oGroupScope,
                 IsSecurityGroup = bSecurityGroup
             };
-
+            
             oGroupPrincipal.Save();
-
             return oGroupPrincipal;
         }
 

@@ -170,6 +170,36 @@ namespace AD
             dataGridView1.Rows.Clear();
             getUsers();
         }
+
+        private void CreateGroupButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GroupScope groupScope = new GroupScope();
+                switch (GroupScopeComboBox.Text)
+                {
+                    case "Глобальная":
+                        groupScope = GroupScope.Global;
+                        break;
+                    case "Локальная домена":
+                        groupScope = GroupScope.Local;
+                        break;
+                    case "Универсальная":
+                        groupScope = GroupScope.Universal;
+                        break;
+                    default:
+                        break;
+                        
+                }
+                
+                GroupManagement.CreateNewGroup("OU=Groups,DC=" + Properties.Settings.Default.RootDom + ",DC=" + Properties.Settings.Default.RootDNS, NameGroupTextBox.Text, DescriptionGroupTextBox.Text, groupScope, SecurityGroupCheckBox.Checked);
+                MessageBox.Show("Группа " + NameGroupTextBox.Text + " создана!");
+            }
+            catch (Exception n)
+            {
+                MessageBox.Show(n.Message);
+            }
+        }
     }
  }
 

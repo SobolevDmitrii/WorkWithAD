@@ -71,12 +71,17 @@
             this.FullNameUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Login = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.CreateGroupeTabPage = new System.Windows.Forms.TabPage();
+            this.NameGroupTextBox = new System.Windows.Forms.TextBox();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ReloadtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.DescriptionGroupTextBox = new System.Windows.Forms.TextBox();
+            this.GroupScopeComboBox = new System.Windows.Forms.ComboBox();
+            this.SecurityGroupCheckBox = new System.Windows.Forms.CheckBox();
+            this.CreateGroupButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.UsersTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -91,8 +96,9 @@
             this.AllUsersTabPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage2.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.CreateGroupeTabPage.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -102,7 +108,7 @@
             this.файлToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(367, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(553, 24);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -117,7 +123,7 @@
             // настройкиToolStripMenuItem
             // 
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
-            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.настройкиToolStripMenuItem.Text = "Настройки";
             this.настройкиToolStripMenuItem.Click += new System.EventHandler(this.настройкиToolStripMenuItem_Click);
             // 
@@ -129,7 +135,7 @@
             this.UsersTab.Location = new System.Drawing.Point(0, 24);
             this.UsersTab.Name = "UsersTab";
             this.UsersTab.SelectedIndex = 0;
-            this.UsersTab.Size = new System.Drawing.Size(367, 281);
+            this.UsersTab.Size = new System.Drawing.Size(553, 428);
             this.UsersTab.TabIndex = 14;
             // 
             // tabPage1
@@ -138,7 +144,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(359, 255);
+            this.tabPage1.Size = new System.Drawing.Size(545, 402);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Пользователи";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -154,7 +160,7 @@
             this.ControlUserTab.Location = new System.Drawing.Point(3, 3);
             this.ControlUserTab.Name = "ControlUserTab";
             this.ControlUserTab.SelectedIndex = 0;
-            this.ControlUserTab.Size = new System.Drawing.Size(353, 249);
+            this.ControlUserTab.Size = new System.Drawing.Size(539, 396);
             this.ControlUserTab.TabIndex = 0;
             // 
             // tabPage3
@@ -163,7 +169,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(345, 223);
+            this.tabPage3.Size = new System.Drawing.Size(531, 370);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Новый пользователь";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -185,7 +191,7 @@
             this.CreateUserPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CreateUserPanel.Location = new System.Drawing.Point(3, 3);
             this.CreateUserPanel.Name = "CreateUserPanel";
-            this.CreateUserPanel.Size = new System.Drawing.Size(339, 217);
+            this.CreateUserPanel.Size = new System.Drawing.Size(525, 364);
             this.CreateUserPanel.TabIndex = 26;
             // 
             // PasTextBox
@@ -293,7 +299,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(345, 223);
+            this.tabPage4.Size = new System.Drawing.Size(531, 370);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Удалить";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -306,7 +312,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(339, 217);
+            this.panel2.Size = new System.Drawing.Size(525, 364);
             this.panel2.TabIndex = 28;
             // 
             // DeleteUserButton
@@ -341,7 +347,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(345, 223);
+            this.tabPage5.Size = new System.Drawing.Size(531, 370);
             this.tabPage5.TabIndex = 2;
             this.tabPage5.Text = "Сменить пароль";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -356,7 +362,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(339, 217);
+            this.panel1.Size = new System.Drawing.Size(525, 364);
             this.panel1.TabIndex = 29;
             // 
             // NewPasTexBox
@@ -410,7 +416,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(345, 223);
+            this.tabPage6.Size = new System.Drawing.Size(531, 370);
             this.tabPage6.TabIndex = 3;
             this.tabPage6.Text = "Блокировка/Разблокировка";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -457,7 +463,7 @@
             this.AllUsersTabPanel.Location = new System.Drawing.Point(4, 22);
             this.AllUsersTabPanel.Name = "AllUsersTabPanel";
             this.AllUsersTabPanel.Padding = new System.Windows.Forms.Padding(3);
-            this.AllUsersTabPanel.Size = new System.Drawing.Size(345, 223);
+            this.AllUsersTabPanel.Size = new System.Drawing.Size(531, 370);
             this.AllUsersTabPanel.TabIndex = 4;
             this.AllUsersTabPanel.Text = "Все пользователи";
             this.AllUsersTabPanel.UseVisualStyleBackColor = true;
@@ -475,7 +481,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(339, 217);
+            this.dataGridView1.Size = new System.Drawing.Size(525, 364);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
@@ -497,10 +503,53 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(359, 255);
+            this.tabPage2.Size = new System.Drawing.Size(545, 402);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Группы";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.CreateGroupeTabPage);
+            this.tabControl1.Controls.Add(this.tabPage8);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(539, 396);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // CreateGroupeTabPage
+            // 
+            this.CreateGroupeTabPage.Controls.Add(this.CreateGroupButton);
+            this.CreateGroupeTabPage.Controls.Add(this.SecurityGroupCheckBox);
+            this.CreateGroupeTabPage.Controls.Add(this.GroupScopeComboBox);
+            this.CreateGroupeTabPage.Controls.Add(this.DescriptionGroupTextBox);
+            this.CreateGroupeTabPage.Controls.Add(this.NameGroupTextBox);
+            this.CreateGroupeTabPage.Location = new System.Drawing.Point(4, 22);
+            this.CreateGroupeTabPage.Name = "CreateGroupeTabPage";
+            this.CreateGroupeTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.CreateGroupeTabPage.Size = new System.Drawing.Size(531, 370);
+            this.CreateGroupeTabPage.TabIndex = 0;
+            this.CreateGroupeTabPage.Text = "Создать";
+            this.CreateGroupeTabPage.UseVisualStyleBackColor = true;
+            // 
+            // NameGroupTextBox
+            // 
+            this.NameGroupTextBox.Location = new System.Drawing.Point(7, 7);
+            this.NameGroupTextBox.Name = "NameGroupTextBox";
+            this.NameGroupTextBox.Size = new System.Drawing.Size(176, 20);
+            this.NameGroupTextBox.TabIndex = 0;
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(531, 370);
+            this.tabPage8.TabIndex = 1;
+            this.tabPage8.Text = "tabPage8";
+            this.tabPage8.UseVisualStyleBackColor = true;
             // 
             // contextMenuStrip1
             // 
@@ -513,52 +562,60 @@
             // ReloadtoolStripMenuItem
             // 
             this.ReloadtoolStripMenuItem.Name = "ReloadtoolStripMenuItem";
-            this.ReloadtoolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ReloadtoolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.ReloadtoolStripMenuItem.Text = "Обновить";
             this.ReloadtoolStripMenuItem.Click += new System.EventHandler(this.ReloadtoolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(128, 22);
             this.toolStripMenuItem3.Text = "2";
             // 
-            // tabControl1
+            // DescriptionGroupTextBox
             // 
-            this.tabControl1.Controls.Add(this.tabPage7);
-            this.tabControl1.Controls.Add(this.tabPage8);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(3, 3);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(353, 249);
-            this.tabControl1.TabIndex = 0;
+            this.DescriptionGroupTextBox.Location = new System.Drawing.Point(7, 33);
+            this.DescriptionGroupTextBox.Name = "DescriptionGroupTextBox";
+            this.DescriptionGroupTextBox.Size = new System.Drawing.Size(176, 20);
+            this.DescriptionGroupTextBox.TabIndex = 1;
             // 
-            // tabPage7
+            // GroupScopeComboBox
             // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(345, 223);
-            this.tabPage7.TabIndex = 0;
-            this.tabPage7.Text = "tabPage7";
-            this.tabPage7.UseVisualStyleBackColor = true;
+            this.GroupScopeComboBox.FormattingEnabled = true;
+            this.GroupScopeComboBox.Items.AddRange(new object[] {
+            "Глобальная",
+            "Локальная домена",
+            "Универсальная"});
+            this.GroupScopeComboBox.Location = new System.Drawing.Point(7, 60);
+            this.GroupScopeComboBox.Name = "GroupScopeComboBox";
+            this.GroupScopeComboBox.Size = new System.Drawing.Size(176, 21);
+            this.GroupScopeComboBox.TabIndex = 2;
             // 
-            // tabPage8
+            // SecurityGroupCheckBox
             // 
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(192, 74);
-            this.tabPage8.TabIndex = 1;
-            this.tabPage8.Text = "tabPage8";
-            this.tabPage8.UseVisualStyleBackColor = true;
+            this.SecurityGroupCheckBox.AutoSize = true;
+            this.SecurityGroupCheckBox.Location = new System.Drawing.Point(7, 88);
+            this.SecurityGroupCheckBox.Name = "SecurityGroupCheckBox";
+            this.SecurityGroupCheckBox.Size = new System.Drawing.Size(140, 17);
+            this.SecurityGroupCheckBox.TabIndex = 3;
+            this.SecurityGroupCheckBox.Text = "Группа безопастности";
+            this.SecurityGroupCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // CreateGroupButton
+            // 
+            this.CreateGroupButton.Location = new System.Drawing.Point(7, 112);
+            this.CreateGroupButton.Name = "CreateGroupButton";
+            this.CreateGroupButton.Size = new System.Drawing.Size(86, 23);
+            this.CreateGroupButton.TabIndex = 4;
+            this.CreateGroupButton.Text = "Создать";
+            this.CreateGroupButton.UseVisualStyleBackColor = true;
+            this.CreateGroupButton.Click += new System.EventHandler(this.CreateGroupButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(367, 305);
+            this.ClientSize = new System.Drawing.Size(553, 452);
             this.Controls.Add(this.UsersTab);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -583,8 +640,10 @@
             this.AllUsersTabPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.CreateGroupeTabPage.ResumeLayout(false);
+            this.CreateGroupeTabPage.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -637,8 +696,13 @@
         private System.Windows.Forms.ToolStripMenuItem ReloadtoolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.TabPage CreateGroupeTabPage;
         private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.TextBox NameGroupTextBox;
+        private System.Windows.Forms.CheckBox SecurityGroupCheckBox;
+        private System.Windows.Forms.ComboBox GroupScopeComboBox;
+        private System.Windows.Forms.TextBox DescriptionGroupTextBox;
+        private System.Windows.Forms.Button CreateGroupButton;
     }
 }
 
