@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,12 +61,22 @@
             this.SetPasswordButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.LoginUserTextBox = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.EnableButton = new System.Windows.Forms.Button();
             this.DisableButtom = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.LoginDisableTextBox = new System.Windows.Forms.TextBox();
-            this.EnableButton = new System.Windows.Forms.Button();
+            this.AllUsersTabPanel = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.FullNameUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Login = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ReloadtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
             this.menuStrip1.SuspendLayout();
             this.UsersTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -77,6 +88,11 @@
             this.tabPage5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabPage6.SuspendLayout();
+            this.AllUsersTabPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -86,7 +102,7 @@
             this.файлToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(362, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(367, 24);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -113,7 +129,7 @@
             this.UsersTab.Location = new System.Drawing.Point(0, 24);
             this.UsersTab.Name = "UsersTab";
             this.UsersTab.SelectedIndex = 0;
-            this.UsersTab.Size = new System.Drawing.Size(362, 280);
+            this.UsersTab.Size = new System.Drawing.Size(367, 281);
             this.UsersTab.TabIndex = 14;
             // 
             // tabPage1
@@ -122,7 +138,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(354, 254);
+            this.tabPage1.Size = new System.Drawing.Size(359, 255);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Пользователи";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -133,11 +149,12 @@
             this.ControlUserTab.Controls.Add(this.tabPage4);
             this.ControlUserTab.Controls.Add(this.tabPage5);
             this.ControlUserTab.Controls.Add(this.tabPage6);
+            this.ControlUserTab.Controls.Add(this.AllUsersTabPanel);
             this.ControlUserTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ControlUserTab.Location = new System.Drawing.Point(3, 3);
             this.ControlUserTab.Name = "ControlUserTab";
             this.ControlUserTab.SelectedIndex = 0;
-            this.ControlUserTab.Size = new System.Drawing.Size(348, 248);
+            this.ControlUserTab.Size = new System.Drawing.Size(353, 249);
             this.ControlUserTab.TabIndex = 0;
             // 
             // tabPage3
@@ -146,7 +163,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(340, 222);
+            this.tabPage3.Size = new System.Drawing.Size(345, 223);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Новый пользователь";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -168,7 +185,7 @@
             this.CreateUserPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CreateUserPanel.Location = new System.Drawing.Point(3, 3);
             this.CreateUserPanel.Name = "CreateUserPanel";
-            this.CreateUserPanel.Size = new System.Drawing.Size(334, 216);
+            this.CreateUserPanel.Size = new System.Drawing.Size(339, 217);
             this.CreateUserPanel.TabIndex = 26;
             // 
             // PasTextBox
@@ -276,7 +293,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(340, 222);
+            this.tabPage4.Size = new System.Drawing.Size(345, 223);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Удалить";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -289,7 +306,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(334, 216);
+            this.panel2.Size = new System.Drawing.Size(339, 217);
             this.panel2.TabIndex = 28;
             // 
             // DeleteUserButton
@@ -324,7 +341,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(340, 222);
+            this.tabPage5.Size = new System.Drawing.Size(345, 223);
             this.tabPage5.TabIndex = 2;
             this.tabPage5.Text = "Сменить пароль";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -339,7 +356,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(334, 216);
+            this.panel1.Size = new System.Drawing.Size(339, 217);
             this.panel1.TabIndex = 29;
             // 
             // NewPasTexBox
@@ -384,16 +401,6 @@
             this.LoginUserTextBox.Size = new System.Drawing.Size(194, 20);
             this.LoginUserTextBox.TabIndex = 0;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(354, 254);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Группы";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.EnableButton);
@@ -403,10 +410,20 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(340, 222);
+            this.tabPage6.Size = new System.Drawing.Size(345, 223);
             this.tabPage6.TabIndex = 3;
             this.tabPage6.Text = "Блокировка/Разблокировка";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // EnableButton
+            // 
+            this.EnableButton.Location = new System.Drawing.Point(22, 71);
+            this.EnableButton.Name = "EnableButton";
+            this.EnableButton.Size = new System.Drawing.Size(132, 23);
+            this.EnableButton.TabIndex = 22;
+            this.EnableButton.Text = "Рзблокировать";
+            this.EnableButton.UseVisualStyleBackColor = true;
+            this.EnableButton.Click += new System.EventHandler(this.EnableButton_Click);
             // 
             // DisableButtom
             // 
@@ -434,21 +451,114 @@
             this.LoginDisableTextBox.Size = new System.Drawing.Size(88, 20);
             this.LoginDisableTextBox.TabIndex = 19;
             // 
-            // EnableButton
+            // AllUsersTabPanel
             // 
-            this.EnableButton.Location = new System.Drawing.Point(22, 71);
-            this.EnableButton.Name = "EnableButton";
-            this.EnableButton.Size = new System.Drawing.Size(132, 23);
-            this.EnableButton.TabIndex = 22;
-            this.EnableButton.Text = "Рзблокировать";
-            this.EnableButton.UseVisualStyleBackColor = true;
-            this.EnableButton.Click += new System.EventHandler(this.EnableButton_Click);
+            this.AllUsersTabPanel.Controls.Add(this.dataGridView1);
+            this.AllUsersTabPanel.Location = new System.Drawing.Point(4, 22);
+            this.AllUsersTabPanel.Name = "AllUsersTabPanel";
+            this.AllUsersTabPanel.Padding = new System.Windows.Forms.Padding(3);
+            this.AllUsersTabPanel.Size = new System.Drawing.Size(345, 223);
+            this.AllUsersTabPanel.TabIndex = 4;
+            this.AllUsersTabPanel.Text = "Все пользователи";
+            this.AllUsersTabPanel.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FullNameUser,
+            this.Login});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(339, 217);
+            this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
+            // 
+            // FullNameUser
+            // 
+            this.FullNameUser.HeaderText = "Имя Пользователя";
+            this.FullNameUser.Name = "FullNameUser";
+            this.FullNameUser.ReadOnly = true;
+            // 
+            // Login
+            // 
+            this.Login.HeaderText = "Логин";
+            this.Login.Name = "Login";
+            this.Login.ReadOnly = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.tabControl1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(359, 255);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Группы";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ReloadtoolStripMenuItem,
+            this.toolStripMenuItem3});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(129, 48);
+            // 
+            // ReloadtoolStripMenuItem
+            // 
+            this.ReloadtoolStripMenuItem.Name = "ReloadtoolStripMenuItem";
+            this.ReloadtoolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ReloadtoolStripMenuItem.Text = "Обновить";
+            this.ReloadtoolStripMenuItem.Click += new System.EventHandler(this.ReloadtoolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Text = "2";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage7);
+            this.tabControl1.Controls.Add(this.tabPage8);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(353, 249);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(345, 223);
+            this.tabPage7.TabIndex = 0;
+            this.tabPage7.Text = "tabPage7";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(192, 74);
+            this.tabPage8.TabIndex = 1;
+            this.tabPage8.Text = "tabPage8";
+            this.tabPage8.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(362, 304);
+            this.ClientSize = new System.Drawing.Size(367, 305);
             this.Controls.Add(this.UsersTab);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -470,6 +580,11 @@
             this.panel1.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
+            this.AllUsersTabPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -514,6 +629,16 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox LoginDisableTextBox;
         private System.Windows.Forms.Button EnableButton;
+        private System.Windows.Forms.TabPage AllUsersTabPanel;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FullNameUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Login;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem ReloadtoolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.TabPage tabPage8;
     }
 }
 

@@ -168,29 +168,27 @@ namespace AD
                 oUserPrincipal.Enabled = false;
                 oUserPrincipal.Save();
 
-                try
+                if (DirectoryEntry.Exists(@"LDAP://OU=UsersOff,DC=" + sRootDom + ",DC=" + sRootDNS))
                 {
 
-                    var objresult = HelperMetods.LDAPFindOne("", sUserName, LdapFilter.UsersSAN);
+                    MoveUsers(sUserName, "UsersOff");
                     
-                    using (DirectoryEntry userEntry = objresult.GetDirectoryEntry())
+                }
+                else
+                {
+                    try
                     {
-                        if (userEntry != null)
-                        {
-                            
-                            string targetLdapPath = @"LDAP://OU=UsersOff,DC=" + sRootDom + ",DC=" + sRootDNS;
-                            
-                            using (DirectoryEntry targetLdapConnection = new DirectoryEntry(targetLdapPath, sServiceUser, sServicePassword))
-                            {
-                                userEntry.MoveTo(targetLdapConnection);
-                            }
-                        }
+
+                        WorkWithAD.CreateNewOU("UsersOff");
+
+                        MoveUsers(sUserName, "UsersOff");
+                       
+                    }
+                    catch(Exception e)
+                    {
+                        MessageBox.Show(e.Message);
                     }
                 }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message);
-                }              
             }
         }
 
@@ -384,5 +382,30 @@ namespace AD
             }
         }
 
+        public static void MoveUsers(string sUserName , string sOU)
+        {
+            try
+            {
+                var objresult = HelperMetods.LDAPFindOne("", sUserName, LdapFilter.UsersSAN);
+
+                using (DirectoryEntry userEntry = objresult.GetDirectoryEntry())
+                {
+                    if (userEntry != null)
+                    {
+
+                        string targetLdapPath = @"LDAP://OU=" + sOU + ",DC=" + sRootDom + ",DC=" + sRootDNS;
+
+                        using (DirectoryEntry targetLdapConnection = new DirectoryEntry(targetLdapPath, sServiceUser, sServicePassword))
+                        {
+                            userEntry.MoveTo(targetLdapConnection);
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
     }
 }
