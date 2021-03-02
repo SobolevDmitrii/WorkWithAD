@@ -11,6 +11,7 @@ using System.Net;
 using System.Security.Principal;
 using ActiveDs;
 using System.Collections;
+using System.Windows.Forms;
 
 namespace AD
 {
@@ -69,6 +70,7 @@ namespace AD
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 return null;
             }
 
@@ -133,6 +135,7 @@ namespace AD
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 return null;
             }
 
@@ -168,7 +171,7 @@ namespace AD
                 }
                 catch (Exception er)
                 {
-
+                    MessageBox.Show(er.Message);
                     return null;
                 }
 

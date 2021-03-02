@@ -86,6 +86,7 @@ namespace AD
             }
             catch (Exception e)
             {
+                MessageBox.Show(e.Message);
                 err = e.Message;
                 return false;
             }
@@ -234,7 +235,7 @@ namespace AD
             }
             catch (Exception e)
             {
-
+                MessageBox.Show(e.Message);
                 return false;
             }
         }

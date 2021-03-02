@@ -73,15 +73,15 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.CreateGroupeTabPage = new System.Windows.Forms.TabPage();
+            this.CreateGroupButton = new System.Windows.Forms.Button();
+            this.SecurityGroupCheckBox = new System.Windows.Forms.CheckBox();
+            this.GroupScopeComboBox = new System.Windows.Forms.ComboBox();
+            this.DescriptionGroupTextBox = new System.Windows.Forms.TextBox();
             this.NameGroupTextBox = new System.Windows.Forms.TextBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ReloadtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.DescriptionGroupTextBox = new System.Windows.Forms.TextBox();
-            this.GroupScopeComboBox = new System.Windows.Forms.ComboBox();
-            this.SecurityGroupCheckBox = new System.Windows.Forms.CheckBox();
-            this.CreateGroupButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.UsersTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -483,6 +483,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(525, 364);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
             // FullNameUser
@@ -534,6 +535,45 @@
             this.CreateGroupeTabPage.Text = "Создать";
             this.CreateGroupeTabPage.UseVisualStyleBackColor = true;
             // 
+            // CreateGroupButton
+            // 
+            this.CreateGroupButton.Location = new System.Drawing.Point(7, 112);
+            this.CreateGroupButton.Name = "CreateGroupButton";
+            this.CreateGroupButton.Size = new System.Drawing.Size(86, 23);
+            this.CreateGroupButton.TabIndex = 4;
+            this.CreateGroupButton.Text = "Создать";
+            this.CreateGroupButton.UseVisualStyleBackColor = true;
+            this.CreateGroupButton.Click += new System.EventHandler(this.CreateGroupButton_Click);
+            // 
+            // SecurityGroupCheckBox
+            // 
+            this.SecurityGroupCheckBox.AutoSize = true;
+            this.SecurityGroupCheckBox.Location = new System.Drawing.Point(7, 88);
+            this.SecurityGroupCheckBox.Name = "SecurityGroupCheckBox";
+            this.SecurityGroupCheckBox.Size = new System.Drawing.Size(140, 17);
+            this.SecurityGroupCheckBox.TabIndex = 3;
+            this.SecurityGroupCheckBox.Text = "Группа безопастности";
+            this.SecurityGroupCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // GroupScopeComboBox
+            // 
+            this.GroupScopeComboBox.FormattingEnabled = true;
+            this.GroupScopeComboBox.Items.AddRange(new object[] {
+            "Глобальная",
+            "Локальная домена",
+            "Универсальная"});
+            this.GroupScopeComboBox.Location = new System.Drawing.Point(7, 60);
+            this.GroupScopeComboBox.Name = "GroupScopeComboBox";
+            this.GroupScopeComboBox.Size = new System.Drawing.Size(176, 21);
+            this.GroupScopeComboBox.TabIndex = 2;
+            // 
+            // DescriptionGroupTextBox
+            // 
+            this.DescriptionGroupTextBox.Location = new System.Drawing.Point(7, 33);
+            this.DescriptionGroupTextBox.Name = "DescriptionGroupTextBox";
+            this.DescriptionGroupTextBox.Size = new System.Drawing.Size(176, 20);
+            this.DescriptionGroupTextBox.TabIndex = 1;
+            // 
             // NameGroupTextBox
             // 
             this.NameGroupTextBox.Location = new System.Drawing.Point(7, 7);
@@ -557,59 +597,21 @@
             this.ReloadtoolStripMenuItem,
             this.toolStripMenuItem3});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(129, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(177, 48);
             // 
             // ReloadtoolStripMenuItem
             // 
             this.ReloadtoolStripMenuItem.Name = "ReloadtoolStripMenuItem";
-            this.ReloadtoolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.ReloadtoolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ReloadtoolStripMenuItem.Text = "Обновить";
             this.ReloadtoolStripMenuItem.Click += new System.EventHandler(this.ReloadtoolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(128, 22);
-            this.toolStripMenuItem3.Text = "2";
-            // 
-            // DescriptionGroupTextBox
-            // 
-            this.DescriptionGroupTextBox.Location = new System.Drawing.Point(7, 33);
-            this.DescriptionGroupTextBox.Name = "DescriptionGroupTextBox";
-            this.DescriptionGroupTextBox.Size = new System.Drawing.Size(176, 20);
-            this.DescriptionGroupTextBox.TabIndex = 1;
-            // 
-            // GroupScopeComboBox
-            // 
-            this.GroupScopeComboBox.FormattingEnabled = true;
-            this.GroupScopeComboBox.Items.AddRange(new object[] {
-            "Глобальная",
-            "Локальная домена",
-            "Универсальная"});
-            this.GroupScopeComboBox.Location = new System.Drawing.Point(7, 60);
-            this.GroupScopeComboBox.Name = "GroupScopeComboBox";
-            this.GroupScopeComboBox.Size = new System.Drawing.Size(176, 21);
-            this.GroupScopeComboBox.TabIndex = 2;
-            // 
-            // SecurityGroupCheckBox
-            // 
-            this.SecurityGroupCheckBox.AutoSize = true;
-            this.SecurityGroupCheckBox.Location = new System.Drawing.Point(7, 88);
-            this.SecurityGroupCheckBox.Name = "SecurityGroupCheckBox";
-            this.SecurityGroupCheckBox.Size = new System.Drawing.Size(140, 17);
-            this.SecurityGroupCheckBox.TabIndex = 3;
-            this.SecurityGroupCheckBox.Text = "Группа безопастности";
-            this.SecurityGroupCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // CreateGroupButton
-            // 
-            this.CreateGroupButton.Location = new System.Drawing.Point(7, 112);
-            this.CreateGroupButton.Name = "CreateGroupButton";
-            this.CreateGroupButton.Size = new System.Drawing.Size(86, 23);
-            this.CreateGroupButton.TabIndex = 4;
-            this.CreateGroupButton.Text = "Создать";
-            this.CreateGroupButton.UseVisualStyleBackColor = true;
-            this.CreateGroupButton.Click += new System.EventHandler(this.CreateGroupButton_Click);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Text = "Добавить в группу";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // Form1
             // 

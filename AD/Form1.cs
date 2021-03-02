@@ -158,6 +158,7 @@ namespace AD
             {
                 dataGridView1.ContextMenuStrip = contextMenuStrip1;
             }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -167,6 +168,7 @@ namespace AD
 
         private void ReloadtoolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             dataGridView1.Rows.Clear();
             getUsers();
         }
@@ -199,6 +201,26 @@ namespace AD
             {
                 MessageBox.Show(n.Message);
             }
+        }
+
+        string er;
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+
+            if (dataGridView1.SelectedRows.Count == 0)
+                return;
+            foreach (DataGridViewRow r in dataGridView1.SelectedRows)
+            {
+                using (UserPrincipal oUserPrincipal = searchMetods.GetUser(r.Cells[1].Value.ToString()))
+                {
+                    GroupManagement.AddUserToGroup(oUserPrincipal, "Test", out er);
+                }
+            }  
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridView1.Rows[e.RowIndex].Selected = true;
         }
     }
  }

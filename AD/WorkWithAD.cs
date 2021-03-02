@@ -22,7 +22,7 @@ namespace AD
         public static string sDefaultRootOU ;//где ищем по умолчанию
         public static string sServiceUser;//пользователь от кого делаем
         public static string sServicePassword;
-        private static bool enabl = true;
+        //private static bool enabl = true;
         #endregion
 
         #region Методы проверки

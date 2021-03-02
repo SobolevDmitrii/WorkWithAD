@@ -25,7 +25,7 @@ namespace AD
         public static string sServicePassword ;
         public static string sRootDom;
         public static string sRootDNS;
-        private static bool enabl = true;
+        //private static bool enabl = true;
 
         #endregion
 
