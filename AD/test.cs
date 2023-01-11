@@ -9,6 +9,7 @@ using System.Collections;
 using System.Net;
 using System.Security.Principal;
 using ActiveDs;
+using System.Windows.Forms;
 
 namespace work_ad
 {
@@ -337,6 +338,7 @@ namespace work_ad
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 return null;
             }
 
@@ -403,6 +405,7 @@ namespace work_ad
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 return null;
             }
 
@@ -449,7 +452,7 @@ namespace work_ad
                 }
                 catch (Exception er)
                 {
-
+                    MessageBox.Show(er.Message);
                     return null;
                 }
 
@@ -1178,7 +1181,7 @@ namespace work_ad
             }
             catch (Exception e)
             {
-
+                MessageBox.Show(e.Message);
                 return false;
             }
         }
@@ -1720,6 +1723,7 @@ namespace work_ad
             }
             catch (Exception erousr)
             {
+                MessageBox.Show(erousr.Message);
                 return null;
             }
 
@@ -1750,6 +1754,7 @@ namespace work_ad
             }
             catch (Exception erousr)
             {
+                MessageBox.Show(erousr.Message);
                 return null;
             }
 
@@ -1816,11 +1821,11 @@ namespace work_ad
                             }
                             catch (NullReferenceException ex)
                             {
-
+                                MessageBox.Show(ex.Message);
                             }
                             catch (Exception ex)
                             {
-
+                                MessageBox.Show(ex.Message);
                             }
                         }
 
@@ -1838,14 +1843,14 @@ namespace work_ad
                     }
                     catch (Exception ex)
                     {
-
+                        MessageBox.Show(ex.Message);
                     }
                 }
 
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
             return cantChange;
         }
