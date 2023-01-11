@@ -11,3 +11,16 @@ D:\AD\AD\obj\Release\AD.csproj.GenerateResource.cache
 D:\AD\AD\obj\Release\AD.csproj.CoreCompileInputs.cache
 D:\AD\AD\obj\Release\AD.exe
 D:\AD\AD\obj\Release\AD.pdb
+E:\AD\AD\bin\Release\AD.exe.config
+E:\AD\AD\bin\Release\AD.exe
+E:\AD\AD\bin\Release\AD.pdb
+E:\AD\AD\obj\Release\AD.csprojAssemblyReference.cache
+E:\AD\AD\obj\Release\Interop.ActiveDs.dll
+E:\AD\AD\obj\Release\AD.csproj.ResolveComReference.cache
+E:\AD\AD\obj\Release\AD.Form1.resources
+E:\AD\AD\obj\Release\AD.Properties.Resources.resources
+E:\AD\AD\obj\Release\AD.SettingsForm.resources
+E:\AD\AD\obj\Release\AD.csproj.GenerateResource.cache
+E:\AD\AD\obj\Release\AD.csproj.CoreCompileInputs.cache
+E:\AD\AD\obj\Release\AD.exe
+E:\AD\AD\obj\Release\AD.pdb

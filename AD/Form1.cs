@@ -11,18 +11,19 @@ using System.Windows.Forms;
 using System.DirectoryServices;
 using System.DirectoryServices.ActiveDirectory;
 using System.DirectoryServices.AccountManagement;
-
-
+using System.Collections;
 
 namespace AD
 {
     public partial class Form1 : Form
     {
-        
+        string sDomain;
         public Form1()
         {
             InitializeComponent();
-          
+
+            sDomain = Properties.Settings.Default.Domain;
+
             HelperMetods.sDomain = Properties.Settings.Default.Domain;
             HelperMetods.sDomainDefault = Properties.Settings.Default.DomainDefault;
             HelperMetods.sServiceUser = Properties.Settings.Default.ServiceUser;
@@ -48,6 +49,8 @@ namespace AD
             work_ad.cAD.sServiceUser = Properties.Settings.Default.ServiceUser;
             work_ad.cAD.sServicePassword = Properties.Settings.Default.ServicePassword;
             work_ad.cAD.sDefaultRootOU = String.Format(@"DC={0},DC={1}", Properties.Settings.Default.RootDom, Properties.Settings.Default.RootDNS);
+            //getUsers();
+            //GetAllUsers();
         }
 
       
@@ -117,6 +120,44 @@ namespace AD
         private void EnableButton_Click(object sender, EventArgs e)
         {
             AccountManagement.EnableUserAccount(LoginDisableTextBox.Text);
+        }
+
+        public void getUsers()
+        {
+            if (Properties.Settings.Default.Domain == null || Properties.Settings.Default.Domain == "")
+                return;
+            else
+            {
+                using (var context = new PrincipalContext(ContextType.Domain, Properties.Settings.Default.Domain))
+                {
+                    using (var searcher = new PrincipalSearcher(new UserPrincipal(context)))
+                    {
+                        foreach (var result in searcher.FindAll())
+                        {
+                            DirectoryEntry de = result.GetUnderlyingObject() as DirectoryEntry;
+                            var enable = de.Properties["userAccountControl"].Value;
+                            if (enable.ToString() == "512" || enable.ToString() == "544" || enable.ToString() == "66048" || enable.ToString() == "66080")
+                            {
+                                dataGridView1.Rows.Add(de.Properties["displayName"].Value, de.Properties["samAccountName"].Value);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            getUsers();
+        }
+
+        private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                dataGridView1.ContextMenuStrip = contextMenuStrip1;
+            }
         }
     }
  }
